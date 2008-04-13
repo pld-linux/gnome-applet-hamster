@@ -16,6 +16,9 @@ BuildRequires:	python-pygtk-devel >= 2:2.12.0
 BuildRequires:	rpmbuild(macros) >= 1.219
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2
+Requires:	python-gnome-desktop-applet >= 2.22.0
+Requires:	python-gnome-gconf >= 2.22.0
+Requires:	python-gnome-ui >= 2.22.0
 Requires:	rarian
 %pyrequires_eq	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
