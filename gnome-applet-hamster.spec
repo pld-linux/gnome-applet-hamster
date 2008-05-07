@@ -1,11 +1,11 @@
 Summary:	Project Hamster is time tracking for masses
 Name:		gnome-applet-hamster
-Version:	0.4
+Version:	0.4.1
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://projecthamster.googlecode.com/files/hamster-applet-%{version}.tar.gz
-# Source0-md5:	c7fd5477f14a6af032b4bd2a066e00bf
+# Source0-md5:	422fb0faafbdb00fed927e15cb892815
 URL:		http://projecthamster.wordpress.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
