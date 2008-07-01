@@ -1,11 +1,12 @@
 Summary:	Project Hamster is time tracking for masses
 Name:		gnome-applet-hamster
 Version:	0.6.1
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://projecthamster.googlecode.com/files/hamster-applet-%{version}.tar.gz
 # Source0-md5:	c9aa0690c9dc8fda4a47cb8bb9434b3a
+Patch0:		%{name}-pythondir.patch
 URL:		http://projecthamster.wordpress.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -33,6 +34,7 @@ have set up.
 
 %prep
 %setup -q -n hamster-applet-%{version}
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -47,6 +49,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+rm $RPM_BUILD_ROOT%{_libdir}/hamster-applet/*.la
+rm $RPM_BUILD_ROOT%{py_sitedir}/hamster/keybinder/*.la
 
 %py_ocomp $RPM_BUILD_ROOT%{py_sitescriptdir}
 %py_comp $RPM_BUILD_ROOT%{py_sitescriptdir}
@@ -75,6 +80,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libexecdir}/hamster-applet/hamster-applet
 %attr(755,root,root) %{_libdir}/hamster-applet/idle.so
 %{_datadir}/hamster-applet
-%{py_sitescriptdir}/*
+%{py_sitedir}/hamster
 %{_iconsdir}/hicolor/*/apps/hamster-applet.png
 %{_iconsdir}/hicolor/*/apps/hamster-applet.svg
