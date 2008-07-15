@@ -1,15 +1,15 @@
 Summary:	Project Hamster is time tracking for masses
 Name:		gnome-applet-hamster
-Version:	0.6.1
-Release:	2
+Version:	0.6.2.1
+Release:	1
 License:	GPL v3
 Group:		X11/Applications
-Source0:	http://projecthamster.googlecode.com/files/hamster-applet-%{version}.tar.gz
-# Source0-md5:	c9aa0690c9dc8fda4a47cb8bb9434b3a
-Patch0:		%{name}-pythondir.patch
+Source0:	http://launchpadlibrarian.net/16030762/hamster-applet_%{version}.tar.gz
+# Source0-md5:	306a2f361ca86529d0228b7bffa92e0c
 URL:		http://projecthamster.wordpress.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.3.0
@@ -33,12 +33,13 @@ track on how much time you have spent during the day on activities you
 have set up.
 
 %prep
-%setup -q -n hamster-applet-%{version}
-%patch0 -p1
+%setup -q -n projecthamster
 
 %build
 %{__libtoolize}
+%{__intltoolize}
 %{__aclocal} -I m4
+%{__autoheader}
 %{__autoconf}
 %{__automake}
 %configure
