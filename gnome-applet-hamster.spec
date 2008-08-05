@@ -1,14 +1,16 @@
+%define		module	hamster-applet
 Summary:	Project Hamster is time tracking for masses
 Name:		gnome-applet-hamster
-Version:	0.6.2.1
+Version:	2.23.6
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
-Source0:	http://launchpadlibrarian.net/16030762/hamster-applet_%{version}.tar.gz
-# Source0-md5:	306a2f361ca86529d0228b7bffa92e0c
-URL:		http://projecthamster.wordpress.com/
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/hamster-applet/2.23/%{module}-%{version}.tar.bz2
+# Source0-md5:	5ed8570d55b663506f8a6346168bb0e4
+URL:		http://live.gnome.org/ProjectHamster
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gnome-control-center-devel
 BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -19,6 +21,7 @@ BuildRequires:	python-sqlite >= 2.3.0
 BuildRequires:	rpmbuild(macros) >= 1.219
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2
+Requires:	gnome-control-center
 Requires:	python-gnome-desktop-applet >= 2.22.0
 Requires:	python-gnome-gconf >= 2.22.0
 Requires:	python-gnome-ui >= 2.22.0
@@ -33,7 +36,7 @@ track on how much time you have spent during the day on activities you
 have set up.
 
 %prep
-%setup -q -n projecthamster
+%setup -q -n %{module}-%{version}
 
 %build
 %{__libtoolize}
@@ -81,6 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libexecdir}/hamster-applet/hamster-applet
 %attr(755,root,root) %{_libdir}/hamster-applet/idle.so
 %{_datadir}/hamster-applet
+%{_datadir}/gnome-control-center/keybindings/99-hamster-applet.xml
 %{py_sitedir}/hamster
 %{_iconsdir}/hicolor/*/apps/hamster-applet.png
 %{_iconsdir}/hicolor/*/apps/hamster-applet.svg
