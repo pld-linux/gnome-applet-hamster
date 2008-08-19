@@ -1,12 +1,12 @@
 %define		module	hamster-applet
 Summary:	Project Hamster is time tracking for masses
 Name:		gnome-applet-hamster
-Version:	2.23.6
+Version:	2.23.90
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/hamster-applet/2.23/%{module}-%{version}.tar.bz2
-# Source0-md5:	5ed8570d55b663506f8a6346168bb0e4
+# Source0-md5:	9ec6054b9dc38096934565b02c8c0f52
 URL:		http://live.gnome.org/ProjectHamster
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -54,7 +54,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm $RPM_BUILD_ROOT%{_libdir}/hamster-applet/*.la
 rm $RPM_BUILD_ROOT%{py_sitedir}/hamster/keybinder/*.la
 
 %py_ocomp $RPM_BUILD_ROOT%{py_sitescriptdir}
@@ -82,7 +81,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/bonobo/servers/*.server
 %dir %{_libexecdir}/hamster-applet
 %attr(755,root,root) %{_libexecdir}/hamster-applet/hamster-applet
-%attr(755,root,root) %{_libdir}/hamster-applet/idle.so
 %{_datadir}/hamster-applet
 %{_datadir}/gnome-control-center/keybindings/99-hamster-applet.xml
 %{py_sitedir}/hamster
