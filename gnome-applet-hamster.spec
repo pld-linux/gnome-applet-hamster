@@ -1,27 +1,30 @@
 %define		module	hamster-applet
 Summary:	Project Hamster is time tracking for masses
 Name:		gnome-applet-hamster
-Version:	2.24.0
+Version:	2.24.1
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/hamster-applet/2.24/%{module}-%{version}.tar.bz2
-# Source0-md5:	fd05dbe0e010a2fcc35ab49e6dadcce7
+# Source0-md5:	601ecba43c2e1d8a7e45686a5c5f7ac4
 URL:		http://live.gnome.org/ProjectHamster
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gnome-control-center-devel
-BuildRequires:	intltool
+BuildRequires:	gettext-devel
+BuildRequires:	gnome-common >= 2.24.0
+BuildRequires:	gnome-control-center-devel >= 2.24.0
+BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	python-devel >= 1:2.3.0
+BuildRequires:	python-devel >= 1:2.4.0
 BuildRequires:	python-gnome-desktop-devel >= 2.22.0
 BuildRequires:	python-pygtk-devel >= 2:2.12.0
 BuildRequires:	python-sqlite >= 2.3.0
 BuildRequires:	rpmbuild(macros) >= 1.219
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2
-Requires:	gnome-control-center
+Requires:	gnome-control-center >= 2.24.0
 Requires:	python-gnome-desktop-applet >= 2.22.0
 Requires:	python-gnome-gconf >= 2.22.0
 Requires:	python-gnome-ui >= 2.22.0
@@ -42,8 +45,8 @@ have set up.
 %{__libtoolize}
 %{__intltoolize}
 %{__aclocal} -I m4
-%{__autoheader}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure
 %{__make}
