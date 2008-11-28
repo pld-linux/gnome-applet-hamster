@@ -1,0 +1,82 @@
+--- hamster-applet-2.24.2/configure.ac.orig	2008-11-28 13:11:55.469703717 +0100
++++ hamster-applet-2.24.2/configure.ac	2008-11-28 13:15:48.453691257 +0100
+@@ -99,43 +99,44 @@
+ AC_SUBST(PYGTK_DEFSDIR)
+ AC_MSG_RESULT($PYGTK_DEFSDIR)
+ 
+-
+-if test "x$PYTHON_VERSION" = "x2.5"; then
+-    AC_MSG_CHECKING([for python sqlite module])
+-    if AC_RUN_LOG([DISPLAY= $PYTHON -c '
+-try:
+-    import sqlite3
+-except ImportError, e:
+-    if str(e).find("sqlite3") >= 0:
+-        raise
+-except:
+-    pass
+-    ']); then
+-      AC_MSG_RESULT([yes])
+-    else
+-      AC_MSG_RESULT([no])
+-      AC_MSG_ERROR([Python 2.5: inbuilt sqlite is required to build hamster])
+-    fi
+-else
+-    AC_MSG_CHECKING([for pysqlite2 module])
+-    if AC_RUN_LOG([DISPLAY= $PYTHON -c '
+-try:
+-    import pysqlite2
+-except ImportError, e:
+-    if str(e).find("pysqlite2") >= 0:
+-        raise
+-except:
+-    pass
+-    ']); then
+-      AC_MSG_RESULT([yes])
+-    else
+-      AC_MSG_RESULT([no])
+-      AC_MSG_ERROR([Python 2.4: pysqlite2 module required to build hamster])
+-    fi
++AC_ARG_ENABLE(sqlite-detection,
++	      [ --enable-sqlite-detection	check sqlite python module])
++if test "$enable_sqlite_detection" != "no"; then
++	if test "x$PYTHON_VERSION" = "x2.5"; then
++	    AC_MSG_CHECKING([for python sqlite module])
++	    if AC_RUN_LOG([DISPLAY= $PYTHON -c '
++	try:
++	    import sqlite3
++	except ImportError, e:
++	    if str(e).find("sqlite3") >= 0:
++		raise
++	except:
++	    pass
++	    ']); then
++	      AC_MSG_RESULT([yes])
++	    else
++	      AC_MSG_RESULT([no])
++	      AC_MSG_ERROR([Python 2.5: inbuilt sqlite is required to build hamster])
++	    fi
++	else
++	    AC_MSG_CHECKING([for pysqlite2 module])
++	    if AC_RUN_LOG([DISPLAY= $PYTHON -c '
++	try:
++	    import pysqlite2
++	except ImportError, e:
++	    if str(e).find("pysqlite2") >= 0:
++		raise
++	except:
++	    pass
++	    ']); then
++	      AC_MSG_RESULT([yes])
++	    else
++	      AC_MSG_RESULT([no])
++	      AC_MSG_ERROR([Python 2.4: pysqlite2 module required to build hamster])
++	    fi
++	fi
+ fi
+ 
+-
+-
+ dnl ==========================
+ dnl Control-Center Keybindings
+ dnl ==========================
