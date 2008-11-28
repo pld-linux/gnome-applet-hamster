@@ -7,6 +7,7 @@ License:	GPL v3
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/hamster-applet/2.24/%{module}-%{version}.tar.bz2
 # Source0-md5:	b754f3953c6aa1ef48838de812600da8
+Patch0:		%{name}-ac.patch
 URL:		http://live.gnome.org/ProjectHamster
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -20,7 +21,6 @@ BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.4.0
 BuildRequires:	python-gnome-desktop-devel >= 2.22.0
 BuildRequires:	python-pygtk-devel >= 2:2.12.0
-BuildRequires:	python-sqlite >= 2.3.0
 BuildRequires:	rpmbuild(macros) >= 1.219
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2
@@ -28,7 +28,7 @@ Requires:	gnome-control-center >= 2.24.0
 Requires:	python-gnome-desktop-applet >= 2.22.0
 Requires:	python-gnome-gconf >= 2.22.0
 Requires:	python-gnome-ui >= 2.22.0
-Requires:	python-sqlite >= 2.3.0
+Requires:	python-modules-sqlite
 Requires:	rarian
 %pyrequires_eq	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -40,6 +40,7 @@ have set up.
 
 %prep
 %setup -q -n %{module}-%{version}
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -48,7 +49,8 @@ have set up.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--disable-sqlite-detection
 %{__make}
 
 %install
