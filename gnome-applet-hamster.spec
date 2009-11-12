@@ -1,13 +1,14 @@
 %define		module	hamster-applet
 Summary:	Project Hamster is time tracking for masses
 Name:		gnome-applet-hamster
-Version:	2.28.0
+Version:	2.28.1
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/hamster-applet/2.28/%{module}-%{version}.tar.bz2
-# Source0-md5:	a35224d3515a0395c1b086cfe4b9a2a5
+# Source0-md5:	f4c68e02b487b9e0d284e63a411d8cdd
 URL:		http://live.gnome.org/ProjectHamster
+BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
