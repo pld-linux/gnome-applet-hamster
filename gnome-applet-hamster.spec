@@ -22,6 +22,7 @@ BuildRequires:	python-devel >= 1:2.4.0
 BuildRequires:	python-gnome-desktop-devel >= 2.22.0
 BuildRequires:	python-modules-sqlite
 BuildRequires:	python-pygtk-devel >= 2:2.12.0
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2
