@@ -1,12 +1,12 @@
 %define		module	hamster-applet
 Summary:	Project Hamster is time tracking for masses
 Name:		gnome-applet-hamster
-Version:	2.28.2
+Version:	2.30.0.1
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/hamster-applet/2.28/%{module}-%{version}.tar.bz2
-# Source0-md5:	8268f2fff714fcc49b63da66d4e89ba5
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/hamster-applet/2.30/%{module}-%{version}.tar.bz2
+# Source0-md5:	1f325ac67636499b9f583d797a19c734
 URL:		http://live.gnome.org/ProjectHamster
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
@@ -28,6 +28,7 @@ Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2
 Requires:	gnome-control-center >= 2.24.0
 Requires:	python-gnome-desktop-applet >= 2.22.0
+Requires:	python-gnome-desktop-libwnck >= 2.22.0
 Requires:	python-gnome-gconf >= 2.22.0
 Requires:	python-gnome-ui >= 2.22.0
 Requires:	python-modules-sqlite
@@ -42,6 +43,8 @@ have set up.
 
 %prep
 %setup -q -n %{module}-%{version}
+sed -i s#^en@shaw## po/LINGUAS
+rm po/en@shaw.po
 
 %build
 %{__libtoolize}
@@ -83,6 +86,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f hamster-applet.lang
 %defattr(644,root,root,755)
+%{_bindir}/gnome-time-tracker
+%{_bindir}/hamster-standalone
+%{_desktopdir}/hamster-standalone.desktop
 %{_sysconfdir}/gconf/schemas/hamster-applet.schemas
 %{_libdir}/bonobo/servers/*.server
 %dir %{_libexecdir}/hamster-applet
