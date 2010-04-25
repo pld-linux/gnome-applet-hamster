@@ -2,7 +2,7 @@
 Summary:	Project Hamster is time tracking for masses
 Name:		gnome-applet-hamster
 Version:	2.30.0.1
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/hamster-applet/2.30/%{module}-%{version}.tar.bz2
@@ -86,8 +86,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f hamster-applet.lang
 %defattr(644,root,root,755)
-%{_bindir}/gnome-time-tracker
-%{_bindir}/hamster-standalone
+%attr(755,root,root) %{_bindir}/gnome-time-tracker
+%attr(755,root,root) %{_bindir}/hamster-standalone
 %{_desktopdir}/hamster-standalone.desktop
 %{_sysconfdir}/gconf/schemas/hamster-applet.schemas
 %{_libdir}/bonobo/servers/*.server
