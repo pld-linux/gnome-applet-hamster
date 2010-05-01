@@ -1,12 +1,12 @@
 %define		module	hamster-applet
 Summary:	Project Hamster is time tracking for masses
 Name:		gnome-applet-hamster
-Version:	2.30.0.1
-Release:	2
+Version:	2.30.1
+Release:	1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/hamster-applet/2.30/%{module}-%{version}.tar.bz2
-# Source0-md5:	1f325ac67636499b9f583d797a19c734
+# Source0-md5:	4f1ae4223344bb1c209676c2d31665e2
 URL:		http://live.gnome.org/ProjectHamster
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
@@ -14,6 +14,7 @@ BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-control-center-devel >= 2.24.0
+BuildRequires:	gnome-doc-utils >= 0.18.0
 BuildRequires:	gtk+2-devel >= 2:2.14.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libtool
@@ -54,6 +55,7 @@ rm po/en@shaw.po
 %{__autoheader}
 %{__automake}
 %configure \
+	--disable-silent-rules \
 	--disable-sqlite-detection
 %{__make}
 
