@@ -2,7 +2,7 @@
 Summary:	Project Hamster is time tracking for masses
 Name:		gnome-applet-hamster
 Version:	2.30.2
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/hamster-applet/2.30/%{module}-%{version}.tar.bz2
