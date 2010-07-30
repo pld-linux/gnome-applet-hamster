@@ -1,0 +1,151 @@
+# Bazaar merge directive format 2 (Bazaar 0.90)
+# revision_id: mbp@sourcefrog.net-20100702015559-yqp76olz3de7vj27
+# target_branch: file:///home/mbp/work/hamster/ubuntu/
+# testament_sha1: 78da10a6804fdda5632dc9d04aa69fb032dc33af
+# timestamp: 2010-07-02 11:57:42 +1000
+# base_revision_id: a.starr.b@gmail.com-20100521230551-\
+#   ct7uobcmzxghyxk9
+# 
+# Begin patch
+=== modified file 'debian/changelog'
+
+=== modified file 'src/hamster/widgets/activityentry.py'
+--- src/hamster/widgets/activityentry.py	2010-04-16 03:50:28 +0000
++++ src/hamster/widgets/activityentry.py	2010-07-02 01:55:59 +0000
+@@ -20,10 +20,10 @@
+ import gtk, gobject
+ import datetime as dt
+ 
+-from .hamster.configuration import runtime
++from hamster.configuration import runtime
+ 
+-from .hamster import stuff
+-from .hamster.stuff import format_duration
++from hamster import stuff
++from hamster.stuff import format_duration
+ 
+ class ActivityEntry(gtk.Entry):
+     __gsignals__ = {
+
+=== modified file 'src/hamster/widgets/dateinput.py'
+--- src/hamster/widgets/dateinput.py	2010-02-10 02:52:31 +0000
++++ src/hamster/widgets/dateinput.py	2010-07-02 01:55:59 +0000
+@@ -17,7 +17,7 @@
+ # You should have received a copy of the GNU General Public License
+ # along with Project Hamster.  If not, see <http://www.gnu.org/licenses/>.
+ 
+-from .hamster.stuff import format_duration
++from hamster.stuff import format_duration
+ import gtk
+ import datetime as dt
+ import calendar
+
+=== modified file 'src/hamster/widgets/dayline.py'
+--- src/hamster/widgets/dayline.py	2010-02-10 02:52:31 +0000
++++ src/hamster/widgets/dayline.py	2010-07-02 01:55:59 +0000
+@@ -20,8 +20,8 @@
+ import gtk
+ import gobject
+ 
+-from .hamster import stuff
+-from .hamster import graphics
++from hamster import stuff
++from hamster import graphics
+ 
+ import time
+ import datetime as dt
+
+=== modified file 'src/hamster/widgets/facttree.py'
+--- src/hamster/widgets/facttree.py	2010-05-14 14:28:07 +0000
++++ src/hamster/widgets/facttree.py	2010-07-02 01:55:59 +0000
+@@ -20,8 +20,8 @@
+ import gtk, gobject
+ import datetime as dt
+ 
+-from .hamster import stuff
+-from .hamster.stuff import format_duration, format_activity
++from hamster import stuff
++from hamster.stuff import format_duration, format_activity
+ from tags import Tag
+ 
+ import pango
+
+=== modified file 'src/hamster/widgets/tags.py'
+--- src/hamster/widgets/tags.py	2010-02-10 02:52:31 +0000
++++ src/hamster/widgets/tags.py	2010-07-02 01:55:59 +0000
+@@ -21,9 +21,9 @@
+ import pango, cairo
+ from math import pi
+ 
+-from .hamster import graphics
++from hamster import graphics
+ 
+-from .hamster.configuration import runtime
++from hamster.configuration import runtime
+ 
+ class TagsEntry(gtk.Entry):
+     __gsignals__ = {
+
+=== modified file 'src/hamster/widgets/timechart.py'
+--- src/hamster/widgets/timechart.py	2010-02-10 02:52:31 +0000
++++ src/hamster/widgets/timechart.py	2010-07-02 01:55:59 +0000
+@@ -20,7 +20,7 @@
+ import os  # for locale
+ import gtk, pango
+ 
+-from .hamster import graphics
++from hamster import graphics
+ 
+ import time, datetime as dt
+ import calendar
+
+=== modified file 'src/hamster/widgets/timeinput.py'
+--- src/hamster/widgets/timeinput.py	2010-05-14 14:28:07 +0000
++++ src/hamster/widgets/timeinput.py	2010-07-02 01:55:59 +0000
+@@ -17,7 +17,7 @@
+ # You should have received a copy of the GNU General Public License
+ # along with Project Hamster.  If not, see <http://www.gnu.org/licenses/>.
+ 
+-from .hamster.stuff import format_duration
++from hamster.stuff import format_duration
+ import gtk
+ import datetime as dt
+ import calendar
+
+# Begin bundle
+IyBCYXphYXIgcmV2aXNpb24gYnVuZGxlIHY0CiMKQlpoOTFBWSZTWWbK80sABb/fgEAQWH///1s2
+QAC////wYAkOPpFHoAA9OQAABVBQBET0ganoJpjRHqaGhoZGhoGgNMJVT0IZPSD0EGjQNMRoANMm
+gA1U/VNGwo2mieoaGIZGmgANGIAJElPIJqYap6eppjJJ6jQDIZA9IAcwCYATAACYAAmAAFSiAmjR
+oEyaE0ynkR6iZqRtJtTNT9KQALv1vCCY2QSdXYOHolwiYlqjoKfIhRspVhO6DbOAjBQWWl1vOaqV
+gBQgmxr50UBBbXKqdHKoiG5zunE9ijEd1pxP1QzuyrmbgPBLckxjGhiH1dn2Aw2Pop0MJphzpCGx
+ujTGbCIOuWFUqUnmrzVXW1xenD/Lr7aNHQafx528ZO4nif8mpSP9ZvO12HIpADGgsGaCFABB7ctv
+XERfyl075znjjrwSpJi4aSsD7ksKZ/xr7gCtgsRiQxRo1RI7KG3K3LjLeLxO0nNJWTkR0iO2oxt2
+zSfxcbIjK3URrU7nDZH8nr5qFjg4EW0acqM9llVVixQo7RiWnvTUOOFD9eeWQtmmAct9VKKUSbQR
+25SnmxaEgoryQQsCcIQsiljJAixWfjrZUIwiTv1KMVrK35u2Em011iM16skXSi5iqc6TJRqRrymt
+tVbnRixtl0R5ffZvba6VzWpSiW5cLS41/h+1YS8pJSIoRwIHsKiDyBnshIR0eI7raIAwGBwEKtqS
+RlkzQ3gKAJXOKuKNTquNb+fy4brmcReRXlbjw1r1vWsrn6Wdzrkv0ijUPHwXuj+03MDc8L2bNwdH
+RhfZpLCuFfb+9xhPKVoRLyODBxeFsJSpf4tKlKqxUpYWO+xLy+p3P5kKuljVYpbfzW441p0YfR38
+7JGpwZM822YXt62UML82Jvb6Sltzuk8Li6UjWxzbFm3VevudHh53Yrtzcrr8Mcebm2eDBPpxWM3P
+Borm2uP9EZ4b2vbw40lKKZW7WhLNyrJQ2tbFw4W3MJZ0Nei5xprkasNenBk6LGWjUqty2WWV2yyI
+2zC9wtLt7zjBU4l7ipvyW6hLyjtriNFCLCNZVtM2pmscGrLURt48VhvVxVo+85WN5Tdu2/X/Dldd
+N0RR5yclGqjW51405cr7Dex5o1qN7BvM1rVlxXNrpiR1iO7W1Y2deNK4XXwsbVKjYsIyWt+dLZvc
+FZct7U5ZTa1r+Fr2I3VuUmDYy54o2O3SrNRfc0UcmxwbW38hYR11871Kl+CxbZLm3rZhrX37wJGV
+JK4keHEqbWdXC4yNCgsWhAuws6IEXXmPxiKJFkowauGC5SzXjWbLaWt+/jxcHB9JkpVsXquMRvf/
+PDTVt1TlRWk2W2pbZa6X0st5nFf3XwRAh1uiCxIsserwQcDdrFaDbY7222yIj3gOG22B5uriBUcE
+YiRtKBWrgGhtPnn4W6lh+Klv8qrYuKU3UlZKSPD9bA6dNUbXyW23osUHVc6lr/x08HfguUvtXPF4
+vpg7O338vKl0t83T+0R76m5mxW7nf8SO0/vH5+Q/Ut8ILb5WKT48eMhfF0+7KTtLVcU+Nyy1dPz0
+XPh5qerIsdHfb2dX6xayanf2fY5xF70ZV4pHv86ecdx8RF72e21zcXSc+VzuvnPmyuU8nJz2LV7J
+g+q5znRV0a1+1z3O9It9fT28KdZblcyPGR40WT1LpOzDGWWOzx4Pbi+r0eTsybdbk2oouatiLnc1
+MKLjGDO1y50UpkuXX6qEXb87nfEUWMJPKFO0+hhEYPd9nuKObusa+FFFRt8ML/TqrqcmfJtw9lK/
+9UbmDHxXqkdnR5xHuNQ3MqTZQrxG+RzsmTXwapvyb6vScWP77dax8uNM+bJI67dtFFur3pp/qrjL
+1N8P6n2mSxF0GfSvth6YHpR/6eHCSM5NkjKC/pJ8uzc6KRFne+HZ0lstdva5gZOzFg815a2PX3p4
+vXFivfhjnZubFWcMPykq7QwdX+x+I/OFlJM/XpOCRxYEu72J+UJ8lTeSk8u0mh9T/kaTCclzyeyF
+yfo+29Yn8r0/Bx+k2tb3XL/3sYUMknC91r8qc6f2n7ftByfElmrvhe7PVc7RUS9FrokupY4SLZpr
+ZtEwf49eWGSYyP0kfOhYbbRstIwNHR3lPXukXODz9HjHIzkZ1Pi0XqAy8TSWnat+Fdq8rvYtKEjk
+jEDHWetAwNmJxXNI7n2OAqmiphY/N6bs1q++FUn3Usg+QopJok0igEdNs0iY0/ckhkImloRAE4dW
+CsspJKxWWHrpLTJy3OkqkbH7EVSbia48VCYOVr+F73kbRV80LJr9EjO/LQj4SNN3WoojnEWXwy7p
+nZBSvL4Md1U6xGtvndEaToRrOo2Ul8Uhtkb9j5TcnMokWTGQ09N0Lvvr96ZsxloQu3XNJnGTyLAC
+SZbBBcMzp71CCw1qoGS8UIui+d5HfoOjR8pFgxP0on2SP8mTwjiqeMGciyLSt67nxSVI212lFFny
+OZfYuVi8foH1+tOYtUOi70YRbBx3h60eS7xz1tmdFKcVq9NDZIwmyqkqmkl6qO/dhLIwktMI/eI5
+lO+yT1f1Y9Nua6PE13z5qckju0anzTfK8ZHA1kY+R3SfOy76GLsaoOfHOIpGkRyaci+aZTk+DQjO
+bHeeMkYd/CHccPQ//F3JFOFCQZsrzSw=
