@@ -2,7 +2,7 @@
 Summary:	Project Hamster is time tracking for masses
 Name:		gnome-applet-hamster
 Version:	2.30.2
-Release:	5
+Release:	6
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/hamster-applet/2.30/%{module}-%{version}.tar.bz2
@@ -26,8 +26,8 @@ BuildRequires:	python-modules-sqlite
 BuildRequires:	python-pygtk-devel >= 2:2.12.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
+Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
-Requires(post,preun):	GConf2
 Requires:	gnome-control-center >= 2.24.0
 Requires:	python-gnome-desktop-applet >= 2.22.0
 Requires:	python-gnome-desktop-libwnck >= 2.22.0
