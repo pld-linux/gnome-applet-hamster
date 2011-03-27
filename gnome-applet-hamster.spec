@@ -1,5 +1,6 @@
 %define		module	hamster-applet
-Summary:	Project Hamster is time tracking for masses
+Summary:	Project Hamster - time tracking for masses
+Summary(pl.UTF-8):	Projekt Hamster - śledzenie czasu dla każdego
 Name:		gnome-applet-hamster
 Version:	2.30.2
 Release:	6
@@ -43,11 +44,14 @@ Project Hamster is time tracking for masses. It helps you to keep
 track on how much time you have spent during the day on activities you
 have set up.
 
+%description -l pl.UTF-8
+Projekt Hamster to śledzenie czasu dla każdego. Pozwala zbierać
+informacje, jak dużo czasu w czasie dnia zajmują nam wybrane
+czynności.
+
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p0
-sed -i s#^en@shaw## po/LINGUAS
-rm po/en@shaw.po
 
 %build
 %{__libtoolize}
@@ -67,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm $RPM_BUILD_ROOT%{py_sitedir}/hamster/keybinder/*.la
+%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/hamster/keybinder/*.la
 
 %py_ocomp $RPM_BUILD_ROOT%{py_sitescriptdir}
 %py_comp $RPM_BUILD_ROOT%{py_sitescriptdir}
