@@ -13,7 +13,7 @@ URL:		http://live.gnome.org/ProjectHamster
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-control-center-devel >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.18.0
